@@ -41,7 +41,7 @@ const Portfolio = () => {
             Success <span className="text-primary">Stories</span>
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Hear from our graduated student from Code Camp who have transformed their careers and organizations through our programs.
+            Hear from our graduated student from CodeCamp  who have transformed their careers and organizations through our programs.
           </p>
         </div>
 

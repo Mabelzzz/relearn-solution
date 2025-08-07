@@ -54,7 +54,7 @@ const CodeCamp = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Our <span className="text-primary">Code Camp</span>
+            Our <span className="text-primary">Code Camp </span>
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Intensive, career-focused bootcamps designed to transform you into a job-ready
@@ -76,7 +76,7 @@ const CodeCamp = () => {
                     </span>
                   )}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-medium text-gray-900 mb-2">
                   {program.title}
                 </h3>
                 <p className="text-gray-700 text-sm mb-4 leading-relaxed">

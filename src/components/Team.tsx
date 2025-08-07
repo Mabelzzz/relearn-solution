@@ -47,7 +47,7 @@ const Team = () => {
     },
     {
       name: "J Ratchapong",
-      role: "ผู้สอน โครงการ Software park Thailand Code Camp",
+      role: "ผู้สอน โครงการ Software park Thailand CodeCamp ",
       image: "https://relearn-solution.com/wp-content/uploads/2024/07/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%9E%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%88%E0%B8%B5%E0%B8%A2%E0%B8%87-293x300-1-940x940.jpg",
       bio: "Mobile-first developer with expertise in React Native and cross-platform solutions.",
       specialties: ["React Native", "Mobile UI/UX", "App Store Optimization"],

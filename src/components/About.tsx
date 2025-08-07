@@ -77,8 +77,8 @@ const About = () => {
             {values.map((value, i) => {
               const Icon = value.icon;
               return (
-                <div key={value.title} className="bg-white border border-gray-200 rounded-xl p-6 text-center shadow-sm">
-                  <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-primary/10 rounded-full">
+                <div key={value.title} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                  <div className="w-12 h-12 mb-4 flex items-center justify-center bg-primary/10 rounded-full">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <h4 className="text-lg font-semibold text-[#343231] mb-2">{value.title}</h4>

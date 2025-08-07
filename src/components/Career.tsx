@@ -14,7 +14,7 @@ const Career = () => {
       skills: ["React", "Node.js", "TypeScript", "MongoDB", "AWS"]
     },
     {
-      title: "Code Camp Instructor",
+      title: "CodeCamp  Instructor",
       department: "Education",
       location: "On-site",
       type: "Part-time",

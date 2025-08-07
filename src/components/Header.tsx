@@ -16,7 +16,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'services', 'code-camp', 'career', 'contact'];
+    const sectionIds = ['home', 'about', 'services', 'CodeCamp', 'career', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 120;

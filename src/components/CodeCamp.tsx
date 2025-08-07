@@ -49,7 +49,7 @@ const CodeCamp = () => {
   ];
 
   return (
-    <section id="code-camp" className="py-20 lg:py-32 bg-[#FAF9F6]">
+    <section id="CodeCamp" className="py-20 lg:py-32 bg-[#FAF9F6]">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">

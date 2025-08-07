@@ -73,7 +73,7 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {['home', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
+            {['home', 'about', 'services', 'CodeCamp', 'career', 'contact'].map((id) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
@@ -120,7 +120,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden bg-white text-black border-t border-border/50 shadow-sm">
             <nav className="px-4 py-6 space-y-4">
-              {['home', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
+              {['home', 'about', 'services', 'CodeCamp', 'career', 'contact'].map((id) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}

@@ -6,10 +6,10 @@ import BgImage from '../assets/background.png';
 const logosRow1 = [1, 2, 3, 4, 5, 6];
 const logosRow2 = [7, 8, 9, 10, 11, 12, 7, 8, 9, 10, 11, 12];
 
-const Hero = () => {
+const Home = () => {
   return (
     <>
-      <section id="hero" className="relative min-h-screen bg-[#FAFAF9] flex items-center px-6 sm:px-12 md:px-20 py-20 overflow-hidden">
+      <section id="home" className="relative min-h-screen bg-[#FAFAF9] flex items-center px-6 sm:px-12 md:px-20 py-20 overflow-hidden">
         {/* Background Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -167,4 +167,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;

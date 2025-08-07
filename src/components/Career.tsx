@@ -34,11 +34,7 @@ const Career = () => {
   ];
 
   return (
-    <section id="career" className="py-20 bg-primary/50">
-      <div className="p-24 text-primary text-center">
-        <h1>-- Career Section --</h1>
-      </div>
-    </section>
+    <></>
     // <section id="career" className="py-20 bg-secondary/30">
     //   <div className="container mx-auto px-4">
     //     {/* Header */}

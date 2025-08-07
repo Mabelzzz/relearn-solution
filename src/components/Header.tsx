@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, CodeXml } from 'lucide-react';
 import { Button } from './ui/button';
 import RelearnLogo from '../assets/relearn-logo.png';
 
@@ -16,7 +16,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'services', 'code-camp', 'career', 'contact'];
+    const sectionIds = ['home', 'about', 'services', 'code-camp', 'career', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 120;
@@ -55,17 +55,25 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
+            <div className="bg-gradient-primary p-2 rounded-full">
+              <CodeXml className="h-6 w-6 text-white" />
+            </div>
+            <h1 className="text-xl lg:text-2xl font-bold">
+              Relearn Solution
+            </h1>
+          </div>
+          {/* <div className="flex items-center space-x-3">
             <img 
               src={RelearnLogo} 
               alt="Relearn Logo" 
               className="h-auto w-32" 
             />
-          </div>
+          </div> */}
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {['hero', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
+            {['home', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
@@ -112,7 +120,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden bg-white text-black border-t border-border/50 shadow-sm">
             <nav className="px-4 py-6 space-y-4">
-              {['hero', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
+              {['home', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}

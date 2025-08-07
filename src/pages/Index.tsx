@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import Hero from '../components/Hero';
+import Home from '../components/Home';
 import About from '../components/About';
 import Services from '../components/Services';
 import CodeCamp from '../components/CodeCamp';
@@ -16,7 +16,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <Hero />
+        <Home />
         <About />
         <Services />
         <CodeCamp />

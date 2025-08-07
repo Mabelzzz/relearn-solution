@@ -1,26 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, CodeXml, GraduationCap, Building2, Briefcase } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { Button } from './ui/button';
+import RelearnLogo from '../assets/relearn-logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [language, setLanguage] = useState<'EN' | 'TH'>('EN');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'services', 'portfolio', 'team', 'contact', 'career'];
+    const sectionIds = ['hero', 'about', 'services', 'code-camp', 'career', 'contact'];
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120; // offset for fixed header
-
+      const scrollPosition = window.scrollY + 120;
       for (const id of sectionIds) {
         const section = document.getElementById(id);
         if (section) {
@@ -37,188 +36,102 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
     }
   };
 
   return (
-    <header 
+    <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 text-foreground backdrop-blur-md shadow-soft border-b border-border/50' 
-          : 'bg-transparent text-white'
-      }`
-    }
+        isScrolled
+          ? 'bg-white/95 text-foreground backdrop-blur-md shadow-sm border-b border-border/50'
+          : 'bg-white/95 text-foreground backdrop-blur-md'
+      }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="bg-gradient-primary p-2 rounded-full">
-              <CodeXml className="h-6 w-6 text-white" />
-            </div>
-            <h1 className="text-xl lg:text-2xl font-bold">
-              Relearn Solution
-            </h1>
+          <div className="flex items-center space-x-3">
+            <img 
+              src={RelearnLogo} 
+              alt="Relearn Logo" 
+              className="h-auto w-32" 
+            />
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('hero')}
-              className={`hover:text-accent transition-colors ${
-                activeSection === 'hero' ? 'text-accent font-semibold' : ''
-              }`}
-            >
-              Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className={`hover:text-primary transition-colors ${
-                activeSection === 'about' ? 'text-primary font-semibold' : ''
-              }`}
-            >
-              About
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className={`hover:text-primary transition-colors ${
-                activeSection === 'services' ? 'text-primary font-semibold' : ''
-              }`}
-            >
-              Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')}
-              className={`hover:text-primary transition-colors ${
-                activeSection === 'portfolio' ? 'text-primary font-semibold' : ''
-              }`}
-            >
-              Portfolio
-            </button>
-            <button 
-              onClick={() => scrollToSection('team')}
-              className={`hover:text-primary transition-colors ${
-                activeSection === 'team' ? 'text-primary font-semibold' : ''
-              }`}
-            >
-              Team
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className={`hover:text-primary transition-colors ${
-                activeSection === 'contact' ? 'text-primary font-semibold' : ''
-              }`}
-            >
-              Contact
-            </button>
-            <button 
-              onClick={() => scrollToSection('career')}
-              className={`hover:text-primary transition-colors ${
-                activeSection === 'career' ? 'text-primary font-semibold' : ''
-              }`}
-            >
-              Career
-            </button>
+            {['hero', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`hover:text-primary transition-colors ${
+                  activeSection === id ? 'text-primary font-semibold' : ''
+                }`}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' ')}
+              </button>
+            ))}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Button variant="outline" size="sm" className="bg-white text-primary hover:bg-primary hover:text-white" onClick={() => scrollToSection('services')}>
-              <GraduationCap className="h-4 w-4 mr-2" />
-              Join Code Camp
-            </Button>
-            <Button size="sm" className="bg-accent hover:bg-white hover:text-accent" onClick={() => scrollToSection('contact')}>
-              <Building2 className="h-4 w-4 mr-2" />
-              Get Quote
+            {/* Language Switcher */}
+            <div className="relative">
+              <button className="flex items-center text-sm px-4 py-2 rounded-full border border-border shadow-sm hover:bg-muted transition">
+                <Globe className="h-4 w-4 mr-2" />
+                {language}
+              </button>
+              {/* Optional dropdown */}
+              {/* <div className="absolute right-0 mt-2 bg-white shadow-lg rounded text-sm">
+                <button onClick={() => setLanguage('EN')} className="block px-4 py-2 w-full text-left hover:bg-muted">EN</button>
+                <button onClick={() => setLanguage('TH')} className="block px-4 py-2 w-full text-left hover:bg-muted">TH</button>
+              </div> */}
+            </div>
+
+            {/* Contact Us */}
+            <Button size="sm" className="bg-primary text-white hover:bg-primary/90" onClick={() => scrollToSection('contact')}>
+              Contact us
             </Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="lg:hidden p-2 rounded hover:bg-muted transition"
           >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white text-black border-t border-border/50 shadow-soft">
+          <div className="lg:hidden bg-white text-black border-t border-border/50 shadow-sm">
             <nav className="px-4 py-6 space-y-4">
-              <button 
-                onClick={() => scrollToSection('hero')}
-                className={`block w-full text-left py-2 hover:text-accent transition-colors ${
-                  activeSection === 'hero' ? 'text-accent font-semibold' : ''
-                }`}
-              >
-                Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className={`block w-full text-left py-2 hover:text-primary transition-colors ${
-                  activeSection === 'about' ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className={`block w-full text-left py-2 hover:text-primary transition-colors ${
-                  activeSection === 'services' ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                Services
-              </button>
-              <button 
-                onClick={() => scrollToSection('portfolio')}
-                className={`block w-full text-left py-2 hover:text-primary transition-colors ${
-                  activeSection === 'portfolio' ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                Portfolio
-              </button>
-              <button 
-                onClick={() => scrollToSection('team')}
-                className={`block w-full text-left py-2 hover:text-primary transition-colors ${
-                  activeSection === 'team' ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                Team
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className={`block w-full text-left py-2 hover:text-primary transition-colors ${
-                  activeSection === 'contact' ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                Contact
-              </button>
-              <button 
-                onClick={() => scrollToSection('career')}
-                className={`block w-full text-left py-2 hover:text-primary transition-colors ${
-                  activeSection === 'career' ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                Career
-              </button>
-              <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
-                <Button variant="outline" size="sm" onClick={() => scrollToSection('services')}>
-                  <GraduationCap className="h-4 w-4 mr-2" />
-                  Join Code Camp
-                </Button>
-                <Button size="sm" className="bg-accent hover:bg-accent-light" onClick={() => scrollToSection('contact')}>
-                  <Building2 className="h-4 w-4 mr-2" />
-                  Get Quote
+              {['hero', 'about', 'services', 'code-camp', 'career', 'contact'].map((id) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={`block w-full text-left py-2 hover:text-primary transition ${
+                    activeSection === id ? 'text-primary font-semibold' : ''
+                  }`}
+                >
+                  {id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' ')}
+                </button>
+              ))}
+
+              {/* Mobile Language + Contact */}
+              <div className="pt-4 border-t border-border/50 flex flex-col gap-3">
+                <button className="flex items-center px-4 py-2 rounded border text-sm hover:bg-muted">
+                  <Globe className="h-4 w-4 mr-2" />
+                  {language}
+                </button>
+                <Button size="sm" className="bg-primary text-white hover:bg-primary/90" onClick={() => scrollToSection('contact')}>
+                  Contact us
                 </Button>
               </div>
             </nav>

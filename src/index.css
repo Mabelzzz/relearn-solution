@@ -11,12 +11,14 @@
     /* Core Brand Colors */
     --background: 0 0% 100%;
     --foreground: 220 14% 13%;
+    --deflaut: 30 3% 20%;
     
     /* Deep Blue Tech Brand - #2a48a6 */
-    --primary: 221 64% 41%;
+    --primary: 210 86% 32%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 221 64% 51%;
-    --primary-dark: 221 64% 31%;
+    --primary-light: 210 86% 42%;
+    --primary-dark: 210 86% 22%;
+
     
     /* Accent Orange for Energy/Action */
     --accent: 25 95% 53%;

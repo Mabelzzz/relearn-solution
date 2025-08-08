@@ -77,8 +77,8 @@ const About = () => {
             {values.map((value, i) => {
               const Icon = value.icon;
               return (
-                <div key={value.title} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-                  <div className="w-12 h-12 mb-4 flex items-center justify-center bg-primary/10 rounded-full">
+                <div key={value.title} className="bg-white border border-gray-200 rounded-md p-6 shadow-sm">
+                  <div className="w-12 h-12 mb-4 flex items-center justify-center bg-primary/10 rounded-md">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <h4 className="text-lg font-semibold text-[#343231] mb-2">{value.title}</h4>
@@ -98,7 +98,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {timeline.map((item, i) => (
               <div key={i} className="bg-white rounded-xl p-6 text-left border border-gray-200 shadow-sm">
-                <div className="text-xl font-bold text-primary mb-2">{item.year}</div>
+                <div className="text-xl text-center font-bold text-primary mb-2">{item.year}</div>
                 <p className="text-[#343231] text-sm leading-relaxed">{item.detail}</p>
               </div>
             ))}

@@ -5,10 +5,10 @@ import {
   BarChart2,
   Users,
   BookOpenCheck,
-  ArrowRight,
-  BadgeCheck
+  ArrowRight
 } from 'lucide-react';
 import { Button } from "./ui/button";
+import CertificateBadge from '../assets/icons/certificate-badge.svg';
 
 const CodeCamp = () => {
   const programs = [
@@ -69,9 +69,9 @@ const CodeCamp = () => {
             return (
               <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
                 <div className="flex items-start justify-between mb-4">
-                  <Icon className="text-primary h-6 w-6" />
+                  <Icon className="text-primary h-8 w-8" />
                   {program.tag && (
-                    <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold border-2 border-accent text-accent bg-accent/10 px-3 py-1 rounded-full">
                       {program.tag}
                     </span>
                   )}
@@ -98,7 +98,7 @@ const CodeCamp = () => {
                   </div>
                 </div>
 
-                <ul className="text-sm space-y-2 mb-6">
+                <ul className="text-sm grid grid-cols-2 gap-x-6 gap-y-2 mb-6">
                   {program.features.map((f, i) => (
                     <li key={i} className="flex items-start">
                       <BookOpenCheck className="h-4 w-4 text-primary mr-2 mt-0.5" />
@@ -124,22 +124,31 @@ const CodeCamp = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-accent text-white rounded-3xl px-6 py-10 text-center">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <div className="text-left">
-              <h3 className="text-xl sm:text-2xl font-bold mb-2">
-                <BadgeCheck className="inline-block mr-2 h-5 w-5" />
+        <div className="bg-accent text-white rounded-3xl w-3/4 py-12 px-6 text-center mx-auto">
+          <div className="flex flex-col items-center gap-6">
+            {/* ICON & TEXT */}
+            <div className="flex flex-row items-center justify-center max-w-3xl">
+              <img
+                src={CertificateBadge}
+                alt="CertificateBadge"
+                className="h-10 w-10 relative -translate-y-1.5"
+              />
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 ml-3">
                 Not Sure Which Program is Right for You?
               </h3>
-              <p className="text-white/90 max-w-xl text-sm">
-                Schedule a free consultation with our career advisors. We'll help you choose the perfect program based on your background, goals, and career aspirations.
-              </p>
             </div>
-            <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 text-sm rounded-md whitespace-nowrap">
+
+            <p className="text-white/90 text-md max-w-xl -mt-2">
+              Schedule a free consultation with our career advisors. We'll help you choose the perfect program based on your background, goals, and career aspirations.
+            </p>
+
+            {/* BUTTON */}
+            <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 text-md rounded-md whitespace-nowrap font-light">
               Schedule Free Consult <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
+
       </div>
     </section>
   );

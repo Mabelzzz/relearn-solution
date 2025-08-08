@@ -1,5 +1,6 @@
-import { Quote, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { Button } from './ui/button';
+import Quote from '../assets/icons/quotation-mark.svg';
 
 const Portfolio = () => {
   const testimonials = [
@@ -49,11 +50,19 @@ const Portfolio = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {testimonials.map((t, i) => (
             <div key={i} className="bg-white border border-gray-200 rounded-xl p-6">
-              <Quote className="text-primary w-6 h-6 mb-4" />
+              <img
+                src={Quote}
+                alt="Quote"
+                className=" w-6 h-6 mb-4 relative -translate-y-1.5"
+              />
               <p className="text-sm text-gray-800 mb-4">"{t.content}"</p>
               <div className="flex mb-4">
                 {[...Array(t.rating)].map((_, j) => (
-                  <Star key={j} className="h-4 w-4 text-accent fill-accent mr-1" />
+                  <Star
+                    key={j}
+                    className="h-4 w-4 mr-1 fill-[#FFC107] text-[#FFC107]"
+                    stroke="none"
+                  />
                 ))}
               </div>
               <div className="flex items-center gap-4">
@@ -73,25 +82,34 @@ const Portfolio = () => {
         </div>
 
         {/* Metrics CTA */}
-        <div className="bg-gradient-to-r from-primary to-accent text-white rounded-3xl p-8 lg:p-12 text-center">
-          <h3 className="text-xl md:text-2xl font-semibold mb-6">
+        <div className="bg-[linear-gradient(90deg,_#0D5697_0%,_#460D09_100%)] text-white rounded-3xl px-6 py-10 md:px-12 md:py-16 text-center">
+          <h3 className="text-[22px] md:text-[28px] font-semibold md:font-medium mb-12 tracking-tight leading-snug">
             Join Thousands of Successful Graduates
           </h3>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-12 text-xl font-medium">
-            <div>
-              <div className="text-4xl font-bold">92%</div>
-              <p className="text-sm mt-1">Job Placement Rate</p>
+
+          <div className="flex flex-col md:flex-row justify-between pl-20 pr-20 items-center md:gap-24 gap-6 text-[18px] font-medium">
+            {/* Job Placement Rate */}
+            <div className="flex flex-col items-center">
+              <div className="text-[32px] md:text-[40px] font-semibold leading-none">92%</div>
+              <p className="text-[16px] mt-1 leading-tight">Job Placement Rate</p>
             </div>
-            <div>
-              <div className="text-4xl font-bold">6 months</div>
-              <p className="text-sm mt-1">Average Time to Employment</p>
+
+            {/* Average Time */}
+            <div className="flex flex-col items-center">
+              <div className="text-[32px] md:text-[40px] font-semibold leading-none">6 months</div>
+              <p className="text-[16px] mt-1 leading-tight">Average Time to Employment</p>
             </div>
-            <div>
-              <div className="text-4xl font-bold">95%</div>
-              <p className="text-sm mt-1">Student Satisfaction</p>
+
+            {/* Student Satisfaction */}
+            <div className="flex flex-col items-center">
+              <div className="text-[32px] md:text-[40px] font-semibold leading-none">95%</div>
+              <p className="text-[16px] mt-1 leading-tight">Student Satisfaction</p>
             </div>
           </div>
         </div>
+
+
+
       </div>
     </section>
   );

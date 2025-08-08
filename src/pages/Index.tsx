@@ -7,11 +7,28 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Portfolio from '../components/Portfolio';
 import Team from '../components/Team';
 
-import Career from '../components/Career';
+// import Career from './Career';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      // รอให้ DOM โหลดก่อนแล้วค่อย scroll
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  }, [location]);
+  
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -23,7 +40,7 @@ const Index = () => {
         {/* <WhyChooseUs /> */}
         <Portfolio />
         {/* <Team /> */}
-        <Career />
+        {/* <Career /> */}
         <Contact />
       </main>
       <Footer />

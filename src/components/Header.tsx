@@ -16,7 +16,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'services', 'CodeCamp', 'career', 'contact'];
+    const sectionIds = ['home', 'about', 'services', 'CodeCamp', 'career'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 120;
@@ -55,14 +55,18 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <button
+            onClick={() => scrollToSection('home')}
+            className="flex items-center space-x-2 cursor-pointer"
+          >
             <div className="bg-gradient-primary p-2 rounded-full">
               <CodeXml className="h-6 w-6 text-white" />
             </div>
             <h1 className="text-xl lg:text-2xl font-bold">
               Relearn Solution
             </h1>
-          </div>
+          </button>
+
           {/* <div className="flex items-center space-x-3">
             <img 
               src={RelearnLogo} 
@@ -73,16 +77,26 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {['home', 'about', 'services', 'CodeCamp', 'career', 'contact'].map((id) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`hover:text-primary transition-colors ${
-                  activeSection === id ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                {id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' ')}
-              </button>
+            {['home', 'about', 'services', 'CodeCamp', 'career'].map((id) => (
+              id === 'career' ? (
+                <a
+                  key={id}
+                  href="/career"
+                  className="hover:text-primary transition-colors"
+                >
+                  Career
+                </a>
+              ) : (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={`hover:text-primary transition-colors ${
+                    activeSection === id ? 'text-primary font-semibold' : ''
+                  }`}
+                >
+                  {id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' ')}
+                </button>
+              )
             ))}
           </nav>
 

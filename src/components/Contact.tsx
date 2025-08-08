@@ -119,7 +119,8 @@ const Contact = () => {
                 {
                   icon: MapPin,
                   title: 'Office',
-                  detail: '35 Wansorn Building, PhayaThai Rd Ratchathewi, Bangkok 10400, Thailand'
+                  detail: '35 Wansorn Building, PhayaThai Rd Ratchathewi, Bangkok 10400, Thailand',
+                  link: 'https://www.google.com/maps?q=35+Wansorn+Building,+PhayaThai+Rd+Ratchathewi,+Bangkok+10400,+Thailand'
                 },
                 {
                   icon: Phone,
@@ -131,14 +132,25 @@ const Contact = () => {
                   title: 'Email',
                   detail: 'admin@relearn-solution.com'
                 }
-              ].map(({ icon: Icon, title, detail }, i) => (
+              ].map(({ icon: Icon, title, detail, link }, i) => (
                 <div key={i} className="bg-white p-6 rounded-2xl shadow-md flex items-start gap-4">
                   <div className="bg-primary/10 text-primary p-3 rounded-xl">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
                     <h4 className="font-semibold">{title}</h4>
-                    <p className="text-muted-foreground text-sm mt-1">{detail}</p>
+                    {title === 'Office' && link ? (
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground text-sm mt-1 inline-block hover:underline"
+                      >
+                        {detail}
+                      </a>
+                    ) : (
+                      <p className="text-muted-foreground text-sm mt-1">{detail}</p>
+                    )}
                   </div>
                 </div>
               ))}

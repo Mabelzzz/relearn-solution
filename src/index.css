@@ -21,9 +21,10 @@
 
     
     /* Accent Orange for Energy/Action */
-    --accent: 25 95% 53%;
+    --accent: 4 87% 60%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 25 95% 63%;
+    --accent-light: 4 87% 70%;
+
     
     /* Warning/Energy Yellow */
     --warning: 45 93% 58%;

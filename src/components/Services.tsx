@@ -117,7 +117,7 @@ const Services = () => {
                 <div>
                   <div className="flex items-center space-x-3 mb-4">
                     <Icon className="h-6 w-6 text-primary" />
-                    <div className="bg-accent/10 text-accent px-3 py-1 text-xs font-medium rounded-full">{service.tag}</div>
+                    <div className="bg-accent/10 border-2 border-accent text-accent px-3 py-1 text-xs font-medium rounded-full">{service.tag}</div>
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
                   <p className="text-gray-700 mb-4 text-sm leading-relaxed">{service.description}</p>
@@ -145,14 +145,14 @@ const Services = () => {
         </div>
 
         {/* CTA */}
-        <div className="bg-primary text-white rounded-3xl p-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div className="bg-primary text-white rounded-3xl p-12 flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="text-left max-w-3xl">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Need a Tailored Program?</h3>
+            <h3 className="text-2xl md:text-3xl font-medium mb-4">Need a Tailored Program?</h3>
             <p className="text-white/90 mb-0">
               Let’s co-design your learning journey. Our experts will work with you to create a customized solution that meets your specific goals and requirements.
             </p>
           </div>
-          <Button className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-lg rounded-md whitespace-nowrap">
+          <Button className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-md rounded-md whitespace-nowrap font-light">
             Start Planning <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

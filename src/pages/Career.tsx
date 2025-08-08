@@ -44,7 +44,7 @@ const reasons = [
             Together, we’re building the future of learning.
           </p>
           <button
-            onClick={() => navigate('/positions')}
+            onClick={() => navigate('/positions/s')}
             className="bg-accent text-white px-6 py-3 text-sm rounded-md hover:bg-accent/90"
           >
             View Open Positions →

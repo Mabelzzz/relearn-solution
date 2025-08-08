@@ -15,7 +15,7 @@ const positions = [
       "Git, Docker, and CI/CD familiarity",
       "Able to lead code reviews & sprints",
     ],
-    link: "/positions",
+    link: "/positions/senior-full-stack-developer",
   },
   {
     title: "Product Designer",
@@ -29,7 +29,7 @@ const positions = [
       "Skilled in Figma & prototyping",
       "Understands user research & flows",
     ],
-    link: "/positions",
+    link: "/positions/product-designer",
   },
   {
     title: "Content Creator",
@@ -43,7 +43,7 @@ const positions = [
       "Understands tech or education topics",
       "Comfortable with fast-paced campaigns",
     ],
-    link: "/positions",
+    link: "/positions/content-creator",
   },
 ];
 

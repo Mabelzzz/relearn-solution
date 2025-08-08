@@ -27,7 +27,7 @@ const detailedPositions: DetailedPosition[] = [
     location: 'PhayaThai, Bangkok (Hybrid)',
     category: 'Web Development',
     type: 'Full time, 5 days/week',
-    applyLink: '/get-in-touch',
+    applyLink: '/#contact',
     about:
       "We're looking for a senior-level full-stack developer to help us build scalable, modern platforms that empower thousands of learners. You’ll work across the stack—from UI in React to APIs in Node.js and deployment on cloud—and collaborate with design, product, and content teams to deliver real value at speed.",
     responsibilities: [
@@ -72,7 +72,7 @@ const detailedPositions: DetailedPosition[] = [
     location: 'Remote',
     category: 'Design',
     type: 'Full time',
-    applyLink: '/get-in-touch',
+    applyLink: '/#contact',
     about: 'We need a creative Product Designer to craft user flows, wireframes & prototypes.',
     responsibilities: [
       'Create wireframes and high-fidelity prototypes.',
@@ -94,7 +94,7 @@ const detailedPositions: DetailedPosition[] = [
     location: 'Onsite',
     category: 'Content',
     type: 'Full time',
-    applyLink: '/get-in-touch',
+    applyLink: '/#contact',
     about: 'We’re looking for a skilled writer who can translate complex tech topics into clear content.',
     responsibilities: [
       'Write blog posts, whitepapers, and guides.',
